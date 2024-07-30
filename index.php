@@ -607,7 +607,7 @@ class U {
   private static $assetspath;
   public static function assetspath(){
     if(self::$assetspath) return self::$assetspath;
-    return self::$assetspath = Config::get('assets') ? rtrim(Config::get('assets'), '/') . '/' : 'https://cdn.jsdelivr.net/npm/';
+    return self::$assetspath = Config::get('assets') ? rtrim(Config::get('assets'), '/') . '/' : '_files/assets/';
   }
 
   // response headers
@@ -2562,7 +2562,7 @@ if(U::get('action')){
     // various requirements, which would normally be satisfied if accessed from the interface
     $version = $request->param('version');
     if(!$version || !Config::get('allow_check_updates') || version_compare($version, Config::$version) <= 0 || !is_writable(__FILE__)) $request->error('Error');
-    $get = @file_get_contents('https://cdn.jsdelivr.net/npm/files.photo.gallery@' . $version . '/index.php');
+    $get = @file_get_contents('_files/assets/files.photo.gallery@' . $version . '/index.php');
     if(empty($get) || strpos($get, '<?php') !== 0 || !@file_put_contents(__FILE__, $get)) Json::error('failed to update');
     Json::jexit(['success' => true]);
 
