@@ -1,3 +1,6 @@
+更新日志：
+2024-7-30：觅知修改去除购买弹窗，代码全走本地V0.9.7
+
 # [Files](https://www.files.gallery/)
 
 Files is a single-file PHP app that can be dropped into any folder on server, instantly creating a gallery of files and folders
